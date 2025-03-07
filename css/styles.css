@@ -1,0 +1,100 @@
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CSS Variables for light and dark themes */
+:root {
+  --background-color: #f9f9f9;
+  --text-color: #333;
+  --nav-bg: #fff;
+  --nav-border: #ddd;
+  --footer-text: #777;
+}
+
+[data-theme="dark"] {
+  --background-color: #333;
+  --text-color: #f9f9f9;
+  --nav-bg: #444;
+  --nav-border: #555;
+  --footer-text: #aaa;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 20px;
+}
+
+/* Header styles */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+}
+
+/* Theme toggle button */
+#theme-toggle {
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Navigation styles */
+nav {
+  background-color: var(--nav-bg);
+  border: 1px solid var(--nav-border);
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+/* Main content styles */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* Figure and image styles */
+figure {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: var(--footer-text);
+}
