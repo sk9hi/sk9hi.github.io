@@ -1,37 +1,44 @@
-/* Reset default browser styles */
+/* reset default browser styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* CSS Variables for light and dark themes */
+/* 
+  css variables:
+  - default theme: white background
+  - channel theme: approximate brand colors from your image
+*/
+
 :root {
-  --background-color: #f9f9f9;
-  --text-color: #333;
-  --nav-bg: #fff;
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --nav-bg: #f9f9f9;
   --nav-border: #ddd;
   --footer-text: #777;
+  --font-family: "Times New Roman", serif;
 }
 
-[data-theme="dark"] {
-  --background-color: #333;
-  --text-color: #f9f9f9;
-  --nav-bg: #444;
-  --nav-border: #555;
-  --footer-text: #aaa;
+/* "channel" theme variables (approximate navy + green brand colors) */
+[data-theme="channel"] {
+  --background-color: #1a2330; /* navy-like background */
+  --text-color: #ffffff;
+  --nav-bg: #0bc36f;          /* a bright green accent */
+  --nav-border: #0aa660;      /* slightly darker green for borders */
+  --footer-text: #ddd;
 }
 
-/* Global styles */
+/* global styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: var(--font-family);
   line-height: 1.6;
   background-color: var(--background-color);
   color: var(--text-color);
   padding: 20px;
 }
 
-/* Header styles */
+/* header styles */
 header {
   text-align: center;
   margin-bottom: 20px;
@@ -39,17 +46,11 @@ header {
 
 header h1 {
   font-size: 2.5rem;
+  cursor: pointer; /* indicates it's clickable to toggle theme */
+  text-transform: lowercase; /* ensure heading text is displayed in lowercase */
 }
 
-/* Theme toggle button */
-#theme-toggle {
-  margin-top: 10px;
-  padding: 5px 10px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-/* Navigation styles */
+/* navigation styles */
 nav {
   background-color: var(--nav-bg);
   border: 1px solid var(--nav-border);
@@ -71,16 +72,18 @@ nav ul li a {
   text-decoration: none;
   color: var(--text-color);
   font-weight: bold;
+  text-transform: lowercase; /* ensure link text is displayed in lowercase */
 }
 
-/* Main content styles */
+/* main content styles */
 main {
   max-width: 800px;
   margin: 0 auto;
   padding: 10px;
+  text-transform: lowercase; /* ensure body text is displayed in lowercase */
 }
 
-/* Figure and image styles */
+/* figure and image styles */
 figure {
   text-align: center;
   margin-bottom: 20px;
@@ -91,10 +94,16 @@ figure img {
   height: auto;
 }
 
-/* Footer styles */
+figure figcaption {
+  text-transform: lowercase; /* ensure caption is displayed in lowercase */
+}
+
+/* footer styles */
 footer {
   text-align: center;
   margin-top: 20px;
   font-size: 0.9rem;
   color: var(--footer-text);
+  text-transform: lowercase; /* ensure footer text is displayed in lowercase */
 }
+
