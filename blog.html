@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog | sk9hi</title>
+  <title>blog | sk9hi</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
-    <h1>Blog</h1>
-    <button id="theme-toggle">Toggle Theme</button>
+    <h1 id="site-title">blog</h1>
   </header>
+
   <nav>
     <ul>
       <li><a href="index.html">home</a></li>
@@ -19,13 +19,19 @@
       <li><a href="blog.html">blog</a></li>
     </ul>
   </nav>
+
   <main>
-    <p>There are no blogs yet!</p>
-    <!-- Future blog posts will be added here -->
+    <!-- container where the blog posts will be injected by javascript -->
+    <div id="blog-container">
+      <p>loading blog posts...</p>
+    </div>
   </main>
+
   <footer>
-    <p>&copy; 2025 sk9hi. All rights reserved.</p>
+    <p>&copy; 2025 sk9hi. all rights reserved.</p>
   </footer>
+
   <script src="js/main.js"></script>
 </body>
 </html>
+
