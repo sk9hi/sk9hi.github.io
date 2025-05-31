@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Real-Time Age Timer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script defer src="/assets/age.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>IX</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/age.html" aria-current="page">Age Timer</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="age-wrapper">
+        <!-- birth-date prompt -->
+        <form id="choose" style="display: none">
+          <label for="dob-input">When were you born?</label>
+          <footer>
+            <input type="date" id="dob-input" required />
+            <button id="submit">Start</button>
+          </footer>
+        </form>
+
+        <!-- running timer -->
+        <div id="timer" style="display: none">
+          <h2 class="age-label" style="margin-bottom: 0.5rem">AGE</h2>
+          <h3 class="count" id="age"></h3>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      Adapted from&nbsp;
+      <a
+        href="https://chrome.google.com/webstore/detail/motivation/ofdgfpchbidcgncgfpdlpclnpaemakoj?hl=en"
+        target="_blank"
+        rel="noopener"
+      >
+        “Motivation” by maccman
+      </a>
+    </footer>
+  </body>
+</html>

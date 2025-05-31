@@ -1,0 +1,132 @@
+/* ==========  BRAND THEME  ========== */
+:root {
+  --brand-navy: #131d2d;
+  --brand-green: #00c060;
+  --text-light: #f7f7f7;
+  --text-dark: #2d2d2d;
+  --radius: 14px;
+  --shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  font-family: "Inter", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* ==========  GLOBAL RESET  ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  color: var(--text-dark);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========  HEADER  ========== */
+header {
+  background: linear-gradient(
+    90deg,
+    var(--brand-navy) 50%,
+    var(--brand-green) 50%
+  );
+  color: var(--text-light);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header h1 {
+  font-size: 1.75rem;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+nav a:hover {
+  opacity: 0.75;
+}
+
+/* ==========  MAIN & FOOTER  ========== */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+footer {
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #8b8b8b;
+}
+
+/* ==========  AGE TIMER  ========== */
+.age-wrapper {
+  background: #fafafa;
+  padding: 3rem 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+#choose,
+#timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#choose footer {
+  margin-top: 0.75rem;
+}
+label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+input[type="date"] {
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+}
+button {
+  background: var(--brand-green);
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+button:hover {
+  opacity: 0.85;
+}
+
+.age-label {
+  color: #b0b5b9;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+.count {
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: var(--brand-navy);
+  margin-top: 0.25rem;
+}
+.count sup {
+  font-size: 1.5rem;
+  margin-left: 0.25rem;
+}
