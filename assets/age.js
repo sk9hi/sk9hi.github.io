@@ -1,64 +1,61 @@
-/* Real-Time Age Timer with theme switcher */
-
-$(document).ready(function () {
-  /* ----------  Age logic  ---------- */
+$(function () {
+  /* ---- AGE TIMER LOGIC ---- */
   function saveDOB(d) {
     localStorage.setItem("dob", d.getTime());
   }
   function loadDOB() {
     const ts = localStorage.getItem("dob");
-    return ts ? new Date(parseInt(ts)) : null;
+    return ts ? new Date(+ts) : null;
   }
   function splitAge(dob) {
-    const years = (Date.now() - dob) / 31_556_900_000; // average ms / year
-    const [major, minor] = years.toFixed(9).split(".");
-    return { major, minor };
+    const yrs = (Date.now() - dob) / 31_556_900_000;
+    return yrs.toFixed(9).split(".");
   }
-
   function startTimer() {
     const dob = loadDOB();
     $("#choose").hide();
     $("#timer").show();
-
     setInterval(() => {
-      const age = splitAge(dob);
-      $("#age").html(`${age.major}<sup>.${age.minor}</sup>`);
+      const [major, minor] = splitAge(dob);
+      $("#age").html(`${major}<sup>.${minor}</sup>`);
     }, 100);
   }
   function showPrompt() {
     $("#choose").show();
   }
 
-  $("#submit").on("click", (e) => {
+  $("#submit").click((e) => {
     e.preventDefault();
-    const val = $("#dob-input").val();
-    if (!val) return;
-    saveDOB(new Date(val));
+    const v = $("#dob-input").val();
+    if (!v) return;
+    saveDOB(new Date(v));
     startTimer();
   });
 
   loadDOB() ? startTimer() : showPrompt();
 
-  /* ----------  Theme switcher  ---------- */
-  const THEME_KEY = "theme";
+  /* ---- THEME SWITCHER ---- */
+  const KEY = "theme";
+  const $html = $("html");
+  const $btn = $("#theme-btn");
+  const $icon = $("#theme-icon");
 
-  function applyTheme(theme) {
-    if (theme === "light") {
-      $("body").addClass("light");
-      $("#theme-btn").text("🌙"); // moon icon = go dark next
+  function setTheme(t) {
+    $html.removeClass("light dark").addClass(t);
+    localStorage.setItem(KEY, t);
+    if (t === "dark") {
+      $icon.attr("class", "fas fa-sun");
     } else {
-      $("body").removeClass("light");
-      $("#theme-btn").text("☀️"); // sun icon = go light next
+      $icon.attr("class", "fas fa-moon");
     }
   }
-  function currentTheme() {
-    return localStorage.getItem(THEME_KEY) || "dark";
-  }
-  applyTheme(currentTheme());
 
-  $("#theme-btn").on("click", () => {
-    const next = $("body").hasClass("light") ? "dark" : "light";
-    localStorage.setItem(THEME_KEY, next);
-    applyTheme(next);
+  // initialize
+  const stored = localStorage.getItem(KEY) || "dark";
+  setTheme(stored);
+
+  // toggle on click
+  $btn.click(() => {
+    setTheme($html.hasClass("light") ? "dark" : "light");
   });
 });

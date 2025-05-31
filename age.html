@@ -5,6 +5,25 @@
     <title>Real-Time Age Timer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Prevent flash of wrong theme -->
+    <script>
+      (function () {
+        const t = localStorage.getItem("theme");
+        document.documentElement.classList.add(
+          t === "light" ? "light" : "dark",
+        );
+      })();
+    </script>
+
+    <!-- Font Awesome for the toggle icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pOeX+tCc9SghwUoYx8nyMHRn6xDYwYpMx6Vq4bJksguc/RcSgRftGekX4F8eSvT5monP4Pnpn1d+XV4Io1hWpg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <link rel="stylesheet" href="/assets/age.css" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
@@ -13,10 +32,12 @@
     <script defer src="/assets/age.js"></script>
   </head>
   <body>
-    <!-- theme switcher -->
-    <button id="theme-btn" aria-label="Toggle light / dark mode"></button>
+    <!-- theme switcher in top-right -->
+    <button id="theme-btn" aria-label="Toggle theme">
+      <i id="theme-icon" class="fas fa-moon"></i>
+    </button>
 
-    <!-- birth-date prompt -->
+    <!-- date input -->
     <form id="choose" style="display: none">
       <h1 class="age-label">When were you born?</h1>
       <footer>
@@ -25,7 +46,7 @@
       </footer>
     </form>
 
-    <!-- running timer -->
+    <!-- live age -->
     <div id="timer" style="display: none">
       <h1 class="age-label">AGE</h1>
       <h2 class="count" id="age"></h2>

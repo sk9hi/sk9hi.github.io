@@ -1,4 +1,4 @@
-/* =========  RESET  ========= */
+/* ==== RESET ==== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,72 +9,83 @@ body {
   height: 100%;
 }
 
-/* =========  COLOR THEME VARS  ========= */
-body {
-  /* ----- dark mode (default) ----- */
-  --bg: #131d2d;
-  --text: #f7f7f7;
-  --heading: #f7f7f7;
-  --label: #8b8b8b;
-  --accent: #00c060;
+/* ==== COLOR VARIABLES ==== */
+:root {
+  /* dark-mode defaults */
+  --bg: #262626;
+  --text: #bfbfbf; /* all numbers */
+  --label: #888888;
+  --toggle-bg: transparent;
+  --toggle-color: var(--text);
 }
 
 /* light-mode overrides */
-body.light {
+html.light {
   --bg: #ffffff;
   --text: #131d2d;
-  --heading: #131d2d;
   --label: #b0b5b9;
+  --toggle-bg: #131d2d;
+  --toggle-color: #ffffff;
 }
 
-/* =========  LAYOUT  ========= */
+/* ==== LAYOUT ==== */
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "Inter", "Avenir", Helvetica, Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
+  font-family: "Inter", "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-/* =========  THEME TOGGLE  ========= */
+/* ==== THEME BUTTON ==== */
 #theme-btn {
   position: fixed;
   top: 1rem;
   right: 1rem;
-  background: none;
+  width: 2.5rem;
+  height: 2.5rem;
   border: none;
-  font-size: 1.5rem;
-  line-height: 1;
+  border-radius: 50%;
+  background: var(--toggle-bg);
+  color: var(--toggle-color);
   cursor: pointer;
-  color: var(--text);
-  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.2s,
+    opacity 0.2s;
 }
 #theme-btn:hover {
   opacity: 0.8;
+  transform: scale(1.1);
+}
+#theme-icon {
+  font-size: 1.25rem;
 }
 
-/* =========  AGE COMPONENT  ========= */
+/* ==== AGE DISPLAY ==== */
 .age-label {
   color: var(--label);
   font-size: 1.25rem;
-  line-height: 1;
   margin-bottom: 0.25rem;
 }
 .count {
   font-size: 6rem;
   font-weight: 700;
-  color: var(--heading);
+  color: var(--text);
   line-height: 1;
 }
 .count sup {
   font-size: 2.4rem;
   margin-left: 6px;
+  /* no color override—inherit the same var(--text) */
 }
 
-/* =========  FORM ELEMENTS  ========= */
+/* ==== FORM ==== */
 #choose footer {
   margin-top: 0.75rem;
 }
@@ -86,7 +97,7 @@ input[type="date"] {
   margin-right: 0.5rem;
 }
 button {
-  background: var(--accent);
+  background: #00c060;
   border: none;
   color: #fff;
   padding: 0.5rem 1.25rem;
