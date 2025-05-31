@@ -1,0 +1,64 @@
+/* =====  RESET  ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+
+/* =====  LAYOUT  ===== */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", "Avenir", Helvetica, Arial, sans-serif;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =====  AGE COMPONENT  ===== */
+.age-label {
+  color: #b0b5b9;
+  font-size: 1.25rem;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.count {
+  font-size: 6rem;
+  font-weight: 700;
+  color: #131d2d;
+  line-height: 1;
+}
+.count sup {
+  font-size: 2.4rem;
+  margin-left: 6px;
+}
+
+/* =====  FORM ELEMENTS  ===== */
+#choose footer {
+  margin-top: 0.75rem;
+}
+input[type="date"] {
+  padding: 0.5rem 0.75rem;
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-right: 0.5rem;
+}
+button {
+  background: #00c060;
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1.25rem;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+button:hover {
+  opacity: 0.85;
+}
