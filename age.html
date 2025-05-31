@@ -5,22 +5,20 @@
     <title>Real-Time Age Timer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- page-only stylesheet -->
     <link rel="stylesheet" href="/assets/age.css" />
-
-    <!-- favicon (already in the repo root) -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
 
-    <!-- jQuery + timer logic -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script defer src="/assets/age.js"></script>
   </head>
   <body>
+    <!-- theme switcher -->
+    <button id="theme-btn" aria-label="Toggle light / dark mode"></button>
+
     <!-- birth-date prompt -->
     <form id="choose" style="display: none">
       <h1 class="age-label">When were you born?</h1>
-
       <footer>
         <input type="date" id="dob-input" required />
         <button id="submit">Start</button>

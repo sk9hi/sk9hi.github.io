@@ -1,4 +1,4 @@
-/* =====  RESET  ===== */
+/* =========  RESET  ========= */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,20 +9,56 @@ body {
   height: 100%;
 }
 
-/* =====  LAYOUT  ===== */
+/* =========  COLOR THEME VARS  ========= */
+body {
+  /* ----- dark mode (default) ----- */
+  --bg: #131d2d;
+  --text: #f7f7f7;
+  --heading: #f7f7f7;
+  --label: #8b8b8b;
+  --accent: #00c060;
+}
+
+/* light-mode overrides */
+body.light {
+  --bg: #ffffff;
+  --text: #131d2d;
+  --heading: #131d2d;
+  --label: #b0b5b9;
+}
+
+/* =========  LAYOUT  ========= */
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: "Inter", "Avenir", Helvetica, Arial, sans-serif;
-  background: #fff;
+  background: var(--bg);
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
 }
 
-/* =====  AGE COMPONENT  ===== */
+/* =========  THEME TOGGLE  ========= */
+#theme-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text);
+  transition: opacity 0.2s;
+}
+#theme-btn:hover {
+  opacity: 0.8;
+}
+
+/* =========  AGE COMPONENT  ========= */
 .age-label {
-  color: #b0b5b9;
+  color: var(--label);
   font-size: 1.25rem;
   line-height: 1;
   margin-bottom: 0.25rem;
@@ -30,7 +66,7 @@ body {
 .count {
   font-size: 6rem;
   font-weight: 700;
-  color: #131d2d;
+  color: var(--heading);
   line-height: 1;
 }
 .count sup {
@@ -38,7 +74,7 @@ body {
   margin-left: 6px;
 }
 
-/* =====  FORM ELEMENTS  ===== */
+/* =========  FORM ELEMENTS  ========= */
 #choose footer {
   margin-top: 0.75rem;
 }
@@ -50,7 +86,7 @@ input[type="date"] {
   margin-right: 0.5rem;
 }
 button {
-  background: #00c060;
+  background: var(--accent);
   border: none;
   color: #fff;
   padding: 0.5rem 1.25rem;

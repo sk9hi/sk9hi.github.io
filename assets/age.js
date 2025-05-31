@@ -1,8 +1,7 @@
-/* Real-Time Age Timer
-   – simple, full-screen version                                   */
+/* Real-Time Age Timer with theme switcher */
 
 $(document).ready(function () {
-  /* ---------- helpers ---------- */
+  /* ----------  Age logic  ---------- */
   function saveDOB(d) {
     localStorage.setItem("dob", d.getTime());
   }
@@ -11,12 +10,11 @@ $(document).ready(function () {
     return ts ? new Date(parseInt(ts)) : null;
   }
   function splitAge(dob) {
-    const years = (Date.now() - dob) / 31_556_900_000; // avg ms in a year
+    const years = (Date.now() - dob) / 31_556_900_000; // average ms / year
     const [major, minor] = years.toFixed(9).split(".");
     return { major, minor };
   }
 
-  /* ---------- rendering ---------- */
   function startTimer() {
     const dob = loadDOB();
     $("#choose").hide();
@@ -27,13 +25,11 @@ $(document).ready(function () {
       $("#age").html(`${age.major}<sup>.${age.minor}</sup>`);
     }, 100);
   }
-
   function showPrompt() {
     $("#choose").show();
   }
 
-  /* ---------- events ---------- */
-  $("#submit").on("click", function (e) {
+  $("#submit").on("click", (e) => {
     e.preventDefault();
     const val = $("#dob-input").val();
     if (!val) return;
@@ -41,6 +37,28 @@ $(document).ready(function () {
     startTimer();
   });
 
-  /* ---------- init ---------- */
   loadDOB() ? startTimer() : showPrompt();
+
+  /* ----------  Theme switcher  ---------- */
+  const THEME_KEY = "theme";
+
+  function applyTheme(theme) {
+    if (theme === "light") {
+      $("body").addClass("light");
+      $("#theme-btn").text("🌙"); // moon icon = go dark next
+    } else {
+      $("body").removeClass("light");
+      $("#theme-btn").text("☀️"); // sun icon = go light next
+    }
+  }
+  function currentTheme() {
+    return localStorage.getItem(THEME_KEY) || "dark";
+  }
+  applyTheme(currentTheme());
+
+  $("#theme-btn").on("click", () => {
+    const next = $("body").hasClass("light") ? "dark" : "light";
+    localStorage.setItem(THEME_KEY, next);
+    applyTheme(next);
+  });
 });
